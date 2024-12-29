@@ -1,0 +1,3 @@
+return {
+  'withgod/vim-sourcepawn',
+}
