@@ -900,3 +900,4 @@ vim.opt.shiftwidth = 3
 vim.opt.softtabstop = 3
 vim.opt.expandtab = true
 vim.opt.autoindent = true
+vim.opt.ttyfast = true
