@@ -901,3 +901,4 @@ vim.opt.softtabstop = 3
 vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.ttyfast = true
+vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
