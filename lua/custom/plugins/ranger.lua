@@ -7,7 +7,7 @@ return {
         height = 0.95,
       },
     }
-    vim.api.nvim_set_keymap('n', '\\', '', {
+    vim.api.nvim_set_keymap('n', 'ç', '', {
       noremap = true,
       callback = function()
         require('ranger-nvim').open(true)

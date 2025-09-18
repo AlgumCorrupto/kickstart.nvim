@@ -1,3 +1,4 @@
+-- this is fucking lua fuck you
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
@@ -529,24 +530,23 @@ require('lazy').setup({
       --  - cmd (table): Override the default command used to start the server
       --  - filetypes (table): Override the default list of associated filetypes for the server
       --  - capabilities (table): Override fields in capabilities. Can be used to disable certain LSP features.
-      --  - settings (table): Override the default settings passed when initializing the server.
+      --  - settings (table): Override the default\ settings pa\ssed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
         -- clangd = {},
-        gopls = {},
+        -- gopls = {},
         pyright = {},
         rust_analyzer = {},
         texlab = {},
-        elixirls = {},
+        omnisharp = {},
+        --elixirls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
         --    https://github.com/pmizio/typescript-tools.nvim
         --
         -- But for many setups, the LSP (`ts_ls`) will work just fine
-        -- ts_ls = {},
-        --
-
+        ts_ls = {},
         lua_ls = {
           -- cmd = { ... },
           -- filetypes = { ... },
@@ -891,7 +891,7 @@ local function open_alacritty()
   os.execute(string.format('nohup alacritty --working-directory "%s" >/dev/null&1 &', dir))
 end
 
-vim.keymap.set('n', '|', open_alacritty, { desc = 'Open alacritty in working directory' })
+vim.keymap.set('n', 'Ç', open_alacritty, { desc = 'Open alacritty in working directory' })
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
@@ -903,3 +903,11 @@ vim.opt.expandtab = true
 vim.opt.autoindent = true
 vim.opt.ttyfast = true
 vim.keymap.set('n', '<leader>fg', ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
+
+-- fasm gyatt
+vim.api.nvim_create_autocmd('BufReadPre', {
+  pattern = '*.asm',
+  callback = function()
+    vim.g.asmsyntax = 'fasm'
+  end,
+})
